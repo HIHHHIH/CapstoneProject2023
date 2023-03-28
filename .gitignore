@@ -1,3 +1,15 @@
+# Unreal Engine Setup
+plugin/Saved/
+plugin/Intermediate/
+plugin/DerivedDataCache/
+plugin/FileOpenOrder/
+plugin/Plugins/Developer/RiderLink
+plugin/.vs/
+*.pdb
+*.vcxproj
+*.sln
+*-Debug.*
+
 # Visual Studio 2015 user specific files
 .vs/
 
