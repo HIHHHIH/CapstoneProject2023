@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "NeuralDance",
+			"Path": "C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Source\\NeuralDance.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "NeuralDanceEditor",
+			"Path": "C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Source\\NeuralDanceEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Source\\NeuralDance\\NeuralDance.Build.cs",
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Plugins\\Developer\\RiderLink\\Source\\RD\\RD.Build.cs",
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Plugins\\Developer\\RiderLink\\Source\\RiderBlueprint\\RiderBlueprint.Build.cs",
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Plugins\\Developer\\RiderLink\\Source\\RiderGameControl\\RiderGameControl.Build.cs",
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Plugins\\Developer\\RiderLink\\Source\\RiderLink\\RiderLink.Build.cs",
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Plugins\\Developer\\RiderLink\\Source\\RiderLogging\\RiderLogging.Build.cs",
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Plugins\\Developer\\RiderLink\\Source\\RiderShaderInfo\\RiderShaderInfo.Build.cs",
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Source\\NeuralDance.Target.cs",
+		"C:\\Users\\cgdon\\Documents\\Unreal Projects\\NeuralDance\\Source\\NeuralDanceEditor.Target.cs"
+	],
+	"EngineVersion": "5.1.1"
+}

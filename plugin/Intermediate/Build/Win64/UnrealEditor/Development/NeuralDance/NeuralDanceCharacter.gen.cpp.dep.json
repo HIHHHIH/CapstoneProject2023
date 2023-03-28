@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\cgdon\\documents\\unreal projects\\neuraldance\\intermediate\\build\\win64\\unrealeditor\\inc\\neuraldance\\uht\\neuraldancecharacter.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\cgdon\\documents\\unreal projects\\neuraldance\\intermediate\\build\\win64\\neuraldanceeditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "c:\\users\\cgdon\\documents\\unreal projects\\neuraldance\\intermediate\\build\\win64\\unrealeditor\\development\\neuraldance\\definitions.neuraldance.h",
+            "c:\\users\\cgdon\\documents\\unreal projects\\neuraldance\\source\\neuraldance\\neuraldancecharacter.h",
+            "c:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "c:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "c:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "c:\\epic games\\ue_5.1\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "c:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "c:\\epic games\\ue_5.1\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "c:\\users\\cgdon\\documents\\unreal projects\\neuraldance\\intermediate\\build\\win64\\unrealeditor\\inc\\neuraldance\\uht\\neuraldancecharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
