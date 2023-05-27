@@ -9,7 +9,16 @@ conda activate mdm
 python -m spacy download en_core_web_sm
 pip install git+https://github.com/openai/CLIP.git
 ```
-Download Dependencies:
+
+### Download the pretrained models
+
+Download the model(s) you wish to use, then unzip and place them in `./save/`. 
+<details>
+  <summary><b>Text to Motion</b></summary>
+[humanml-encoder-512](https://drive.google.com/file/d/1PE0PK8e5a5j-7-Xhs5YET5U5pGh0c821/view?usp=sharing)
+</details>
+
+### Download Dependencies:
 <details><summary>DOWNLOAD</summary>
 <p>
 
@@ -19,3 +28,8 @@ Unzip this as "body_models". It concludes kit, smpl, t2m folders for "Text to Mo
 
 </p>
 </details>
+
+### RUN server
+```
+python -m server.server
+```

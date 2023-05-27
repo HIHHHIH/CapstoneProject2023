@@ -145,7 +145,7 @@ def add_sampling_options(parser):
     group.add_argument("--output_dir", default='', type=str,
                        help="Path to results dir (auto created by the script). "
                             "If empty, will create dir in parallel to checkpoint.")
-    group.add_argument("--num_samples", default=10, type=int,
+    group.add_argument("--num_samples", default=1, type=int,
                        help="Maximal number of prompts to sample, "
                             "if loading dataset from file, this field will be ignored.")
     group.add_argument("--num_repetitions", default=3, type=int,
