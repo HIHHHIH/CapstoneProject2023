@@ -22,7 +22,7 @@ from data_loaders.tensors import collate
 def main():
     args = generate_args()
     fixseed(args.seed)
-    out_path = args.output_dir
+    #out_path = args.output_dir
     name = os.path.basename(os.path.dirname(args.model_path))
     niter = os.path.basename(args.model_path).replace('model', '').replace('.pt', '')
     max_frames = 196 if args.dataset in ['kit', 'humanml'] else 60
@@ -30,6 +30,7 @@ def main():
     n_frames = min(max_frames, int(args.motion_length*fps))
     is_using_data = not any([args.input_text, args.text_prompt, args.action_file, args.action_name])
     dist_util.setup_dist(args.device)
+    """
     if out_path == '':
         out_path = os.path.join(os.path.dirname(args.model_path),
                                 'samples_{}_{}_seed{}'.format(name, niter, args.seed))
@@ -37,6 +38,7 @@ def main():
             out_path += '_' + args.text_prompt.replace(' ', '_').replace('.', '')
         elif args.input_text != '':
             out_path += '_' + os.path.basename(args.input_text).replace('.txt', '').replace(' ', '_').replace('.', '')
+    """
 
     # this block must be called BEFORE the dataset is loaded
     if args.text_prompt != '':
@@ -154,8 +156,11 @@ def main():
     all_text = all_text[:total_num_samples]
     all_lengths = np.concatenate(all_lengths, axis=0)[:total_num_samples]
 
-    if os.path.exists(out_path):
-        shutil.rmtree(out_path)
+    num = 0
+    out_path = "output/" + str(num)
+    while os.path.exists(out_path):
+        num += 1
+        out_path = "output/" + str(num)
     os.makedirs(out_path)
 
     npy_path = os.path.join(out_path, 'results.npy')
