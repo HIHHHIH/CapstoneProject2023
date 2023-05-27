@@ -45,7 +45,7 @@ def accept_func():
 
 if __name__ == '__main__':
     input_text = "the person walked forward and is picking up his toolbox."
-    subprocess.call(["python","-m","sample.generate","--model_path","./save/humanml_trans_enc_512/model000200000.pt","--text_prompt",input_text])
+    subprocess.call(["python","-m","sample.generate","--model_path","./save/humanml_trans_enc_512/model000200000.pt","--num_samples","1","--num_repetitions","1","--text_prompt",input_text])
     #args = generate_args()
     #args.text_prompt = "the person walked forward and is picking up his toolbox."
     #generate_motion(args)

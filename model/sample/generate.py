@@ -167,7 +167,7 @@ def main():
         fw.write('\n'.join(all_text))
     with open(npy_path.replace('.npy', '_len.txt'), 'w') as fw:
         fw.write('\n'.join([str(l) for l in all_lengths]))
-
+'''
     print(f"saving visualizations to [{out_path}]...")
     skeleton = paramUtil.kit_kinematic_chain if args.dataset == 'kit' else paramUtil.t2m_kinematic_chain
 
@@ -240,6 +240,7 @@ def construct_template_variables(unconstrained):
 
     return sample_print_template, row_print_template, all_print_template, \
            sample_file_template, row_file_template, all_file_template
+'''
 
 
 def load_dataset(args, max_frames, n_frames):
