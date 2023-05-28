@@ -2,6 +2,8 @@ import numpy as np
 import subprocess
 from socket import *
 import threading
+import os
+import shutil
 # from sample.generate import generate_motion
 # from utils.parser_util import generate_args
 
@@ -44,6 +46,12 @@ def accept_func():
 
 
 if __name__ == '__main__':
+    num = 0
+    out_path = "output/" + str(num)
+    while os.path.exists(out_path):
+        shutil.rmtree(out_path)
+        num += 1
+        out_path = "output/" + str(num)
     input_text = "the person walked forward and is picking up his toolbox."
     subprocess.call(["python","-m","sample.generate","--model_path","./save/humanml_trans_enc_512/model000200000.pt","--num_samples","1","--num_repetitions","1","--text_prompt",input_text])
     #args = generate_args()

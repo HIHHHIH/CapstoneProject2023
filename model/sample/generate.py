@@ -18,6 +18,11 @@ from data_loaders.humanml.utils.plot_script import plot_3d_motion
 import shutil
 from data_loaders.tensors import collate
 
+import argparse
+import os
+from visualize import vis_utils
+import shutil
+from tqdm import tqdm
 
 def main():
     args = generate_args()
@@ -172,80 +177,23 @@ def main():
         fw.write('\n'.join(all_text))
     with open(npy_path.replace('.npy', '_len.txt'), 'w') as fw:
         fw.write('\n'.join([str(l) for l in all_lengths]))
-'''
-    print(f"saving visualizations to [{out_path}]...")
-    skeleton = paramUtil.kit_kinematic_chain if args.dataset == 'kit' else paramUtil.t2m_kinematic_chain
 
-    sample_files = []
-    num_samples_in_out_file = 7
+    # SMPLify
+    sample_i = 0
+    rep_i = 0
+    npy_path = "output/"+str(num)+"/results.npy"
+    out_npy_path = "output/"+str(num)+"/smpl_params.npy"
+    assert os.path.exists(npy_path)
 
-    sample_print_template, row_print_template, all_print_template, \
-    sample_file_template, row_file_template, all_file_template = construct_template_variables(args.unconstrained)
+    print("point1")
+    npy2obj = vis_utils.npy2obj(npy_path, sample_i, rep_i,
+                                device=0, cuda=True)
+    print("point2")
 
-    for sample_i in range(args.num_samples):
-        rep_files = []
-        for rep_i in range(args.num_repetitions):
-            caption = all_text[rep_i*args.batch_size + sample_i]
-            length = all_lengths[rep_i*args.batch_size + sample_i]
-            motion = all_motions[rep_i*args.batch_size + sample_i].transpose(2, 0, 1)[:length]
-            save_file = sample_file_template.format(sample_i, rep_i)
-            print(sample_print_template.format(caption, sample_i, rep_i, save_file))
-            animation_save_path = os.path.join(out_path, save_file)
-            plot_3d_motion(animation_save_path, skeleton, motion, dataset=args.dataset, title=caption, fps=fps)
-            # Credit for visualization: https://github.com/EricGuo5513/text-to-motion
-            rep_files.append(animation_save_path)
-
-        sample_files = save_multiple_samples(args, out_path,
-                                               row_print_template, all_print_template, row_file_template, all_file_template,
-                                               caption, num_samples_in_out_file, rep_files, sample_files, sample_i)
-
-    abs_path = os.path.abspath(out_path)
-    print(f'[Done] Results are at [{abs_path}]')
-
-
-def save_multiple_samples(args, out_path, row_print_template, all_print_template, row_file_template, all_file_template,
-                          caption, num_samples_in_out_file, rep_files, sample_files, sample_i):
-    all_rep_save_file = row_file_template.format(sample_i)
-    all_rep_save_path = os.path.join(out_path, all_rep_save_file)
-    ffmpeg_rep_files = [f' -i {f} ' for f in rep_files]
-    hstack_args = f' -filter_complex hstack=inputs={args.num_repetitions}' if args.num_repetitions > 1 else ''
-    ffmpeg_rep_cmd = f'ffmpeg -y -loglevel warning ' + ''.join(ffmpeg_rep_files) + f'{hstack_args} {all_rep_save_path}'
-    os.system(ffmpeg_rep_cmd)
-    print(row_print_template.format(caption, sample_i, all_rep_save_file))
-    sample_files.append(all_rep_save_path)
-    if (sample_i + 1) % num_samples_in_out_file == 0 or sample_i + 1 == args.num_samples:
-        # all_sample_save_file =  f'samples_{(sample_i - len(sample_files) + 1):02d}_to_{sample_i:02d}.mp4'
-        all_sample_save_file = all_file_template.format(sample_i - len(sample_files) + 1, sample_i)
-        all_sample_save_path = os.path.join(out_path, all_sample_save_file)
-        print(all_print_template.format(sample_i - len(sample_files) + 1, sample_i, all_sample_save_file))
-        ffmpeg_rep_files = [f' -i {f} ' for f in sample_files]
-        vstack_args = f' -filter_complex vstack=inputs={len(sample_files)}' if len(sample_files) > 1 else ''
-        ffmpeg_rep_cmd = f'ffmpeg -y -loglevel warning ' + ''.join(
-            ffmpeg_rep_files) + f'{vstack_args} {all_sample_save_path}'
-        os.system(ffmpeg_rep_cmd)
-        sample_files = []
-    return sample_files
-
-
-def construct_template_variables(unconstrained):
-    row_file_template = 'sample{:02d}.mp4'
-    all_file_template = 'samples_{:02d}_to_{:02d}.mp4'
-    if unconstrained:
-        sample_file_template = 'row{:02d}_col{:02d}.mp4'
-        sample_print_template = '[{} row #{:02d} column #{:02d} | -> {}]'
-        row_file_template = row_file_template.replace('sample', 'row')
-        row_print_template = '[{} row #{:02d} | all columns | -> {}]'
-        all_file_template = all_file_template.replace('samples', 'rows')
-        all_print_template = '[rows {:02d} to {:02d} | -> {}]'
-    else:
-        sample_file_template = 'sample{:02d}_rep{:02d}.mp4'
-        sample_print_template = '["{}" ({:02d}) | Rep #{:02d} | -> {}]'
-        row_print_template = '[ "{}" ({:02d}) | all repetitions | -> {}]'
-        all_print_template = '[samples {:02d} to {:02d} | all repetitions | -> {}]'
-
-    return sample_print_template, row_print_template, all_print_template, \
-           sample_file_template, row_file_template, all_file_template
-'''
+    print('Saving SMPL params to [{}]'.format(os.path.abspath(out_npy_path)))
+    print("point3")
+    npy2obj.save_npy(out_npy_path)
+    print("point4")
 
 
 def load_dataset(args, max_frames, n_frames):

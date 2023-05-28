@@ -43,3 +43,5 @@ Unzip this as "body_models". It concludes kit, smpl, t2m folders for "Text to Mo
 ```
 python -m server.server --input_path /path/to/mp4/stick/figure/file
 ```
+
+model/visualize/joints2smpl/smpl_models/gmm_08.pk -> CRLF to LF
