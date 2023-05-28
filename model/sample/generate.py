@@ -185,15 +185,11 @@ def main():
     out_npy_path = "output/"+str(num)+"/smpl_params.npy"
     assert os.path.exists(npy_path)
 
-    print("point1")
     npy2obj = vis_utils.npy2obj(npy_path, sample_i, rep_i,
                                 device=0, cuda=True)
-    print("point2")
 
     print('Saving SMPL params to [{}]'.format(os.path.abspath(out_npy_path)))
-    print("point3")
     npy2obj.save_npy(out_npy_path)
-    print("point4")
 
 
 def load_dataset(args, max_frames, n_frames):
