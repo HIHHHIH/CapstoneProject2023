@@ -3,6 +3,7 @@ import numpy as np
 from trimesh import Trimesh
 import os
 import torch
+import pickle
 from visualize.simplify_loc2rot import joints2smpl
 
 class npy2obj:
@@ -63,4 +64,6 @@ class npy2obj:
             'text': self.motions['text'][0],
             'length': self.real_num_frames,
         }
-        np.save(save_path, data_dict)
+        with open(save_path, 'wb') as f:
+            pickle.dump(data_dict, f)
+        #np.save(save_path, data_dict)

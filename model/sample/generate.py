@@ -182,7 +182,7 @@ def main():
     sample_i = 0
     rep_i = 0
     npy_path = "output/"+str(num)+"/results.npy"
-    out_npy_path = "output/"+str(num)+"/smpl_params.npy"
+    out_npy_path = "output/"+str(num)+"/smpl_params.pkl"
     assert os.path.exists(npy_path)
 
     npy2obj = vis_utils.npy2obj(npy_path, sample_i, rep_i,
@@ -190,6 +190,7 @@ def main():
 
     print('Saving SMPL params to [{}]'.format(os.path.abspath(out_npy_path)))
     npy2obj.save_npy(out_npy_path)
+    print('Fin.')
 
 
 def load_dataset(args, max_frames, n_frames):
