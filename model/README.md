@@ -44,6 +44,13 @@ Unzip this as "body_models". It concludes kit, smpl, t2m folders for "Text to Mo
 </p>
 </details>
 
+### You must check
+model/visualize/joints2smpl/smpl_models/gmm_08.pk -> CRLF to LF
+
+### Install Python FBX SDK
+1. Download Link: <https://www.autodesk.com/developer-network/platform-technologies/fbx-sdk-2020-0> </br> Download FBX Python SDK Windows and Install
+2. Link: <https://download.autodesk.com/us/fbx/20112/fbx_sdk_help/index.html?url=WS1a9193826455f5ff453265c9125faa23bbb5fe8.htm,topicNumber=d0e8312> </br>copy the contents of FBXSDK to anaconda virtual env(mdm) libs directory
+
 ### RUN server
 ```
 python -m server.server --input_path /path/to/mp4/stick/figure/file
@@ -54,9 +61,3 @@ python -m server.server --input_path /path/to/mp4/stick/figure/file
 # include "socket_client.h" -> use connect_server() / read_data() / send_data
 You can see the client prototype at client.cpp file
 ```
-
-model/visualize/joints2smpl/smpl_models/gmm_08.pk -> CRLF to LF
-
-### Install Python FBX SDK
-1. Download Link: <https://www.autodesk.com/developer-network/platform-technologies/fbx-sdk-2020-0> </br> Download FBX Python SDK Windows and Install
-2. Link: <https://download.autodesk.com/us/fbx/20112/fbx_sdk_help/index.html?url=WS1a9193826455f5ff453265c9125faa23bbb5fe8.htm,topicNumber=d0e8312> </br>copy the contents of FBXSDK to anaconda virtual env(mdm) libs directory
