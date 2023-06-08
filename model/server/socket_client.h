@@ -1,7 +1,8 @@
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstdlib>
 #include <winsock2.h>
-
 WSADATA wsaData;
 SOCKET hSocket;
 SOCKADDR_IN servAddr;
@@ -26,10 +27,12 @@ void connect_server() {
 		printf("connect() error!");
 }
 
-int recv_data_size() {
-	char datasize[30];
-	strLen = recv(hSocket, message, sizeof(message) - 1, 0);
+void read_data(char* buffer, int size) {
+	strLen = recv(hSocket, buffer, size, 0);
 	if (strLen <= 0)
 		printf("read() error!");
-	return atoi(datasize);
+}
+
+void send_data(char* message, int size) {
+	send(hSocket, message, size, 0);
 }
