@@ -28,7 +28,7 @@ Download the model(s) you wish to use, then unzip and place them in `./save/`.
 [humanml-encoder-512](https://drive.google.com/file/d/1PE0PK8e5a5j-7-Xhs5YET5U5pGh0c821/view?usp=sharing)
 </details>
 <details>
-  <summary><b>Text to Motion</b></summary>
+  <summary><b>Text to Motion(Augmented-Model)</b></summary>
 [Augmented-Model](https://drive.google.com/drive/folders/1qMWh9J_2d5Kpsy1qMtns662Mp1yO-wqq?usp=sharing)
 </details>
 
@@ -47,6 +47,12 @@ Unzip this as "body_models". It concludes kit, smpl, t2m folders for "Text to Mo
 ### RUN server
 ```
 python -m server.server --input_path /path/to/mp4/stick/figure/file
+```
+
+### RUN client
+```
+# include "socket_client.h" -> use connect_server() / read_data() / send_data
+You can see the client prototype at client.cpp file
 ```
 
 model/visualize/joints2smpl/smpl_models/gmm_08.pk -> CRLF to LF
