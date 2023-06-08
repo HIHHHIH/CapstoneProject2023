@@ -27,6 +27,11 @@ Download the model(s) you wish to use, then unzip and place them in `./save/`.
   <summary><b>Text to Motion</b></summary>
 [humanml-encoder-512](https://drive.google.com/file/d/1PE0PK8e5a5j-7-Xhs5YET5U5pGh0c821/view?usp=sharing)
 </details>
+<details>
+  <summary><b>Text to Motion</b></summary>
+[Augmented-Model](https://drive.google.com/drive/folders/1qMWh9J_2d5Kpsy1qMtns662Mp1yO-wqq?usp=sharing)
+</details>
+
 
 ### Download Dependencies:
 <details><summary>DOWNLOAD</summary>
