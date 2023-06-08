@@ -59,5 +59,5 @@ python -m server.server
 ### How to use API for generating models
 ```
 # include "socket_client.h" -> use connect_server() / read_data() / send_data
-You can see the client prototype at client.cpp file
+You can see the client prototype at server/client.cpp file
 ```
