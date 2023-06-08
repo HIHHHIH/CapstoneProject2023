@@ -53,10 +53,10 @@ model/visualize/joints2smpl/smpl_models/gmm_08.pk -> CRLF to LF
 
 ### RUN server
 ```
-python -m server.server --input_path /path/to/mp4/stick/figure/file
+python -m server.server
 ```
 
-### RUN client
+### How to use API for generating models
 ```
 # include "socket_client.h" -> use connect_server() / read_data() / send_data
 You can see the client prototype at client.cpp file
