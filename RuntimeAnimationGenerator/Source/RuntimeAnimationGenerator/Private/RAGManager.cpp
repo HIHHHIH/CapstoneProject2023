@@ -19,7 +19,6 @@ static const FString SourceMeshPath = FPaths::Combine(PluginName, "/SMPL/SK_SMPL
 static const FString URL = "http://localhost:8000/generate";
 static FString TestFbxName = "dance_happily.fbx";
 static FString TestFbxPath = FPaths::Combine(PluginPath, "/Content/Generated/ResponseFbx", TestFbxName);
-static constexpr int FbxNumFrames2 = 120;
 
 URAGManager::URAGManager()
 {
