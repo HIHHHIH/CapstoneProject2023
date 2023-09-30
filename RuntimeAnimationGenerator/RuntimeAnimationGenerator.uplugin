@@ -1,0 +1,38 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "RuntimeAnimationGenerator",
+	"Description": "Runtime text to motion generator with motion diffusion model.",
+	"Category": "Other",
+	"CreatedBy": "jo yong hyeon",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "RuntimeAnimationGenerator",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen",
+			"AdditionalDependencies": ["Engine"]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "IKRig",
+			"Enabled": true
+		}
+	],
+	"AssetDirectoryMappings": [
+		{
+			"Namespace": "RuntimeAnimationGenerator",
+			"SourceDirectory": "Content",
+			"DestinationDirectory": "/Plugin/RuntimeAnimationGenerator"
+		}
+	]
+}

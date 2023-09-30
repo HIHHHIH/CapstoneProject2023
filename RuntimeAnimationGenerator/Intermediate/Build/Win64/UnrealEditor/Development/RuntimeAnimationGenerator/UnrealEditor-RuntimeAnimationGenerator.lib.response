@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-RuntimeAnimationGenerator.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\cgdon\Documents\Unreal Projects\PluginProject\Intermediate\Build\Win64\PluginProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\cgdon\Documents\Unreal Projects\PluginProject\Plugins\RuntimeAnimationGenerator\Intermediate\Build\Win64\UnrealEditor\Development\RuntimeAnimationGenerator\Module.RuntimeAnimationGenerator.cpp.obj"
+"C:\Users\cgdon\Documents\Unreal Projects\PluginProject\Plugins\RuntimeAnimationGenerator\Intermediate\Build\Win64\UnrealEditor\Development\RuntimeAnimationGenerator\Module.RuntimeAnimationGenerator.gen.cpp.obj"
+"C:\Users\cgdon\Documents\Unreal Projects\PluginProject\Plugins\RuntimeAnimationGenerator\Intermediate\Build\Win64\UnrealEditor\Development\RuntimeAnimationGenerator\Default.rc2.res"
+/OUT:"C:\Users\cgdon\Documents\Unreal Projects\PluginProject\Plugins\RuntimeAnimationGenerator\Intermediate\Build\Win64\UnrealEditor\Development\RuntimeAnimationGenerator\UnrealEditor-RuntimeAnimationGenerator.lib"

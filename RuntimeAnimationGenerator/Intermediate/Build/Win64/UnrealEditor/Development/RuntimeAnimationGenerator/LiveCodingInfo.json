@@ -1,0 +1,19 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.RuntimeAnimationGenerator.cpp.obj": [
+			"AssimpAnimLoader.cpp.obj",
+			"RAGComponent.cpp.obj",
+			"RAGManager.cpp.obj",
+			"RuntimeAnimationGenerator.cpp.obj",
+			"SmplRetargeter.cpp.obj"
+		],
+		"Module.RuntimeAnimationGenerator.gen.cpp.obj": [
+			"AssimpAnimLoader.gen.cpp.obj",
+			"RAGComponent.gen.cpp.obj",
+			"RAGManager.gen.cpp.obj",
+			"RuntimeAnimationGenerator.init.gen.cpp.obj",
+			"SmplRetargeter.gen.cpp.obj"
+		]
+	}
+}
