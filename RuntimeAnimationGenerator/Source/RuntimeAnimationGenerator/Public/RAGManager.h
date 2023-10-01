@@ -24,14 +24,17 @@ class RUNTIMEANIMATIONGENERATOR_API URAGManager : public UObject
 	UAssimpAnimLoader* AnimLoader;
 
 	bool IsClientTest = true;
-	bool bSaveSMPL = true;
+	
 
 	void SetTestFbxName(const TArray<FString>& Args);
 	void ToggleClientTestMode();
 
 	TFuture<FString> RequestAnimationData(FString UserInput) const;
-
+		
+#if WITH_EDITOR
+	bool bSaveSMPL = true;
 	void SaveAnimation(const FString& UserText, UAnimSequence* AnimSequence, const FString& SavePath) const;
+#endif
 
 public:
 
