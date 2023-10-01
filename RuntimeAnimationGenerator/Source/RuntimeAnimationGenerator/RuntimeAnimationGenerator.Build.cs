@@ -45,7 +45,6 @@ public class RuntimeAnimationGenerator : ModuleRules
 				"IKRig",
 				"AnimGraphRuntime",
                 "AnimationBlueprintLibrary",
-				"AssetRegistry",
 			}
 			);
 			
