@@ -30,11 +30,6 @@ class RUNTIMEANIMATIONGENERATOR_API URAGManager : public UObject
 	void ToggleClientTestMode();
 
 	TFuture<FString> RequestAnimationData(FString UserInput) const;
-		
-#if WITH_EDITOR
-	bool bSaveSMPL = true;
-	void SaveAnimation(const FString& UserText, UAnimSequence* AnimSequence, const FString& SavePath) const;
-#endif
 
 public:
 
