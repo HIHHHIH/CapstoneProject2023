@@ -126,34 +126,6 @@ TFuture<FString> URAGManager::RequestAnimationData(FString UserInput) const
 	return Future;
 }
 
-#if WITH_EDITOR
-void URAGManager::SaveAnimation(const FString& UserText, UAnimSequence* AnimSequence, const FString& SavePath) const
-{
-	const FString CurrentTime = FDateTime::Now().ToString(TEXT("%Y%m%d%H%M%S"));
-	const FString UniqueUserText = UserText + "_" + CurrentTime;
-	const FString PackageName = FPaths::Combine(SavePath, UniqueUserText);
-	UPackage* Package = CreatePackage(*PackageName);
-
-	AnimSequence->Rename(*UserText, Package);
-	AnimSequence->SetFlags(RF_Public | RF_Standalone);
-
-	FAssetRegistryModule::AssetCreated(AnimSequence);
-
-	const FString PackageFileName = FPackageName::LongPackageNameToFilename(PackageName, FPackageName::GetAssetPackageExtension());
-
-	// Package save arguments
-	FSavePackageArgs SaveArgs;
-	SaveArgs.TopLevelFlags = EObjectFlags::RF_Public | EObjectFlags::RF_Standalone;
-	SaveArgs.SaveFlags = SAVE_NoError;
-	SaveArgs.bForceByteSwapping = true;
-
-	if (bool bSaveFailed = !UPackage::SavePackage(Package, AnimSequence, *PackageFileName, SaveArgs))
-	{
-		UE_LOG(LogRAG, Error, TEXT("Failed to save animation sequence to content browser."));
-	}
-}
-#endif
-
 void URAGManager::GenerateAnimationInternal(FString UserText) const
 {
 	TFuture<FString> FilePathFuture = RequestAnimationData(UserText);
@@ -170,11 +142,7 @@ void URAGManager::GenerateAnimationInternal(FString UserText) const
 									 if (UAnimSequence* ImportedAnimSequence = AnimLoader->CreateAnimSequenceFromAiScene(Scene))
 									 {
 										 UAnimSequence* GeneratedAnimation = SmplRetargeter->RetargetAnimation(ImportedAnimSequence);
-#if WITH_EDITOR
-										 if (bSaveSMPL) SaveAnimation(UserText, ImportedAnimSequence, SMPLPackagePath);
-										 SaveAnimation(UserText, GeneratedAnimation, RetargetedPackagePath);
-#endif
-									 	OnAnimationGenerated.Broadcast(GeneratedAnimation, UserText);
+									 	 OnAnimationGenerated.Broadcast(GeneratedAnimation, UserText);
 									 }
 								 });
 						 }
