@@ -126,6 +126,7 @@ TFuture<FString> URAGManager::RequestAnimationData(FString UserInput) const
 	return Future;
 }
 
+#if WITH_EDITOR
 void URAGManager::SaveAnimation(const FString& UserText, UAnimSequence* AnimSequence, const FString& SavePath) const
 {
 	const FString CurrentTime = FDateTime::Now().ToString(TEXT("%Y%m%d%H%M%S"));
@@ -151,6 +152,7 @@ void URAGManager::SaveAnimation(const FString& UserText, UAnimSequence* AnimSequ
 		UE_LOG(LogRAG, Error, TEXT("Failed to save animation sequence to content browser."));
 	}
 }
+#endif
 
 void URAGManager::GenerateAnimationInternal(FString UserText) const
 {
@@ -167,11 +169,12 @@ void URAGManager::GenerateAnimationInternal(FString UserText) const
 								 {
 									 if (UAnimSequence* ImportedAnimSequence = AnimLoader->CreateAnimSequenceFromAiScene(Scene))
 									 {
-										 if (bSaveSMPL) SaveAnimation(UserText, ImportedAnimSequence, SMPLPackagePath);
-
 										 UAnimSequence* GeneratedAnimation = SmplRetargeter->RetargetAnimation(ImportedAnimSequence);
+#if WITH_EDITOR
+										 if (bSaveSMPL) SaveAnimation(UserText, ImportedAnimSequence, SMPLPackagePath);
 										 SaveAnimation(UserText, GeneratedAnimation, RetargetedPackagePath);
-										 OnAnimationGenerated.Broadcast(GeneratedAnimation, UserText);
+#endif
+									 	OnAnimationGenerated.Broadcast(GeneratedAnimation, UserText);
 									 }
 								 });
 						 }
